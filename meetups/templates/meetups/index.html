@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}All meetups{% endblock %}
+
+{% block site_css %}
+<link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
+{% endblock %}
+
+{% block main_heading %}
+<h1>We got great meetups coming ahead</h1>
+{% endblock %}
+
+{% block header_content %}
+<p>Find the one that best suits your needs</p>
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'request_meetup' %}" method="get" style="text-align: center; margin: 1rem 0;">
+  <button type="submit" id="btn">Request a meetup</button>
+</form>
+
+<section>
+    <h2>Upcoming Meetups</h2>
+    <ol>
+        {% for meetup_item in meetups %}
+            {% include 'meetups/includes/meetup-item.html' with name=meetup_item.name location=meetup_item.location meetup_item=meetup_item description=meetup_item.description slug=meetup_item.slug image=meetup_item.image.url %}
+        {% endfor %}
+    </ol>
+</section>
+{% endblock %}
