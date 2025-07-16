@@ -16,7 +16,7 @@ All setup and run commands use Docker. Ensure you have Docker and Docker Compose
 1. **Clone the repository**
    ```bash
    git clone https://github.com/GospodinovPetar/python_strypes_projects.git
-   cd django_course_site
+   cd djangoMeetups
    ```
 
 2. **Build and start the containers**
